@@ -1,0 +1,17 @@
+@import 'normalize.css';
+:root {
+}
+
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen-Sans, Ubuntu, Cantarell, helvetica neue,
+        sans-serif;
+    font-size: 1.6rem;
+    text-rendering: optimizeLegibility;
+    line-height: 1.8;
+}
