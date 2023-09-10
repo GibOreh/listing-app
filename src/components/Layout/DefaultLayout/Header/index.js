@@ -1,5 +1,5 @@
-function Footer() {
-    return <h2>Footer</h2>;
+function Header() {
+    return <h2>Header</h2>;
 }
 
-export default Footer;
+export default Header;
