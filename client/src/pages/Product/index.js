@@ -34,7 +34,7 @@ const games = [
         image: 'game2.jpg',
     },
 ];
-function Home() {
+function Update() {
     return (
         <Container>
             <h5 className="my-4">
@@ -89,4 +89,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Update;
