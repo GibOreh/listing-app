@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); // Erase if already required
 
 // Declare the Schema of the Mongo model
-var itemSchema = new mongoose.Schema({
+var appSchema = new mongoose.Schema({
     title:{
         type:String,
         required:true,
@@ -18,9 +18,13 @@ var itemSchema = new mongoose.Schema({
         required:true,
     },
     category:{
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: 'GameCategories'
+        type: String,
+        enum: [
+            'Vehicles', 
+            'Entertainment', 
+            'Education', 
+            'Emulator', 
+            'Photography', 'Communication', 'Personalization', 'Music and Sound', 'Video Players and Edittors', 'Productivity', 'Automobiles and Vehicles', 'Art and Design', 'Travel and Local', 'Social', 'Life Styles', 'Other', 'New Genre'],
     },
     platform:{
         type:String,
@@ -53,4 +57,4 @@ var itemSchema = new mongoose.Schema({
 });
 
 //Export the model
-module.exports = mongoose.model('Items', itemSchema);
+module.exports = mongoose.model('Apps', appSchema);

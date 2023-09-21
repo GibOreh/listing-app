@@ -1,9 +1,7 @@
-const itemRouter = require('./item')
-const gameCategoryRouter  = require('./gameCategory')
+const gameRouter = require('./game')
 
 const initRouters = (app)=>{
-    app.use('/api/item',itemRouter)
-    app.use('/api/gamecategory',gameCategoryRouter)
+    app.use('/api/game',gameRouter)
 }
 
 module.exports = initRouters
