@@ -47,8 +47,7 @@ function Home() {
                             <Link to={`/product-detail/${game.id}`} style={{ textDecoration: 'none' }}>
                                 <Card.Img variant="top" src={game.image} alt={game.title} />
                                 <Card.Body>
-                                    <Card.Title className="text-dark">{game.title}</Card.Title>
-                                    <Card.Text className="text-dark">{game.description}</Card.Text>
+                                    <Card.Text className="text-dark">{game.version} • {game.modFeatures}</Card.Text>
                                     <Badge pill bg="success" className="mr-3 text-light px-3">
                                         APK
                                     </Badge>
@@ -61,30 +60,7 @@ function Home() {
                     </Col>
                 ))}
             </Row>
-            <h5 className="my-4">
-                RECENTLY UPDATED GAMES <HiChevronRight />
-            </h5>
-            <Row>
-                {games.map((game, index) => (
-                    <Col key={index} md={4} sm={6} xs={12} className="mb-4">
-                        <Card>
-                            <Link to={`/product-detail/${game.id}`} style={{ textDecoration: 'none' }}>
-                                <Card.Img variant="top" src={game.image} alt={game.title} />
-                                <Card.Body>
-                                    <Card.Title className="text-dark">{game.title}</Card.Title>
-                                    <Card.Text className="text-dark">{game.description}</Card.Text>
-                                    <Badge pill bg="success" className="mr-3 text-light px-3">
-                                        APK
-                                    </Badge>
-                                    <Badge pill bg="danger text-light px-3">
-                                        MOD
-                                    </Badge>
-                                </Card.Body>
-                            </Link>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
+        
         </Container>
     );
 }

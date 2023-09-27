@@ -17,6 +17,9 @@ var appSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    modFeatures:{
+        type:String,
+    },
     category:{
         type: String,
         enum: [

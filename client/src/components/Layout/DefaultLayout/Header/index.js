@@ -4,7 +4,6 @@ import { Navbar, Nav, Container, FormControl, Button } from 'react-bootstrap';
 function Header() {
     const [expanded, setExpanded] = useState(true);
 
-    // Hàm xử lý sự kiện khi nhấn vào Navbar.Toggle
     const handleToggle = () => {
         setExpanded(!expanded);
     };
@@ -40,63 +39,3 @@ function Header() {
 }
 
 export default Header;
-
-// import React, { useState } from 'react';
-// import { Navbar, Nav, Container } from 'react-bootstrap';
-// import { FaSearch } from 'react-icons/fa';
-
-// function Header()
-//     const [expanded, setExpanded] = useState(true);
-
-//     // Hàm xử lý sự kiện khi nhấn vào Navbar.Toggle
-//     const handleToggle = () => {
-//         setExpanded(!expanded);
-//     };
-//     return (
-//         <Navbar bg="light" expand="lg" className="py-3">
-//             <Container>
-//                 <div className="d-flex mx-auto">
-//                     <div className="order-2 order-lg-1 px-5 ">
-//                         <Navbar.Brand href="/">APKMODY</Navbar.Brand>
-//                     </div>
-//                     <Navbar.Toggle
-//                         aria-controls="navbarNav"
-//                         className="order-1 order-lg-2"
-//                         onClick={handleToggle}
-//                         aria-expanded={expanded}
-//                     />
-//                     <Navbar.Collapse id="navbarNav" className="order-3 order-lg-3 px-5">
-//                         <Nav className="ml-auto px-5 `sidenav ${isOpen ? 'sidenav-open' : ''}`">
-//                             <Nav.Item>
-//                                 <Nav.Link href="/game-category" className="text-dark">
-//                                     Games
-//                                 </Nav.Link>
-//                             </Nav.Item>
-//                             <Nav.Item>
-//                                 <Nav.Link href="/app-category" className="text-dark">
-//                                     Apps
-//                                 </Nav.Link>
-//                             </Nav.Item>
-//                             <Nav.Item>
-//                                 <Nav.Link href="/articles" className="text-dark">
-//                                     Articles
-//                                 </Nav.Link>
-//                             </Nav.Item>
-//                         </Nav>
-//                     </Navbar.Collapse>
-//                     <div className="order-4 order-lg-4 ml-auto px-5 ml-5">
-//                         <Nav className="ml-auto ">
-//                             <Nav.Item>
-//                                 <Nav.Link href="/search" className="text-dark">
-//                                     <FaSearch />
-//                                 </Nav.Link>
-//                             </Nav.Item>
-//                         </Nav>
-//                     </div>
-//                 </div>
-//             </Container>
-//         </Navbar>
-//     );
-// }
-
-// export default Header;

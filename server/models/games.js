@@ -1,6 +1,6 @@
-const mongoose = require('mongoose'); // Erase if already required
+const mongoose = require('mongoose'); 
+const slugify = require('slugify');
 
-// Declare the Schema of the Mongo model
 var gameSchema = new mongoose.Schema({
     title:{
         type:String,
@@ -11,12 +11,10 @@ var gameSchema = new mongoose.Schema({
         type:String,
         required:true,
         unique:true,
-        lowercase: true
+        lowercase: true,
+        strict: true
     },
-    description:{
-        type:String,
-        required:true,
-    },
+
     category:{
         type: String,
         enum: [
@@ -67,11 +65,29 @@ var gameSchema = new mongoose.Schema({
       name: String,
       url: String,
     },
-   
-    
+    description:{
+        type:String,
+        required:true,
+    },
+    modFeatures:{
+        type:String,
+    },
+    isAPK:{
+        type: Boolean,
+        required:true,
+    },
+    isMod:{
+        type: Boolean,
+        required:true,
+    },
 },{
     timestamps: true
 });
+gameSchema.pre('validate', function(next) {
+    this.slug = slugify(this.title, { lower: true });
 
-//Export the model
+    this.slug = this.slug.replace(/[':]/g, ''); 
+
+    next();
+});
 module.exports = mongoose.model('Games', gameSchema);
