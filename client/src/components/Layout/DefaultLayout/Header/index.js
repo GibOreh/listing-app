@@ -26,6 +26,7 @@ function Header() {
 
     return (
         <Container>
+            <div>
                 <Navbar
                     expand="lg"
                     variant="light"
@@ -53,10 +54,11 @@ function Header() {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
-            <div className={`search-overlay ${showSearch ? 'show-search-bar' : ''}`} onClick={handleSearchClick}></div>
-            <div className={`search-bar-container ${showSearch ? 'show-search-bar' : ''}`}>
-                <Search onSearch={(searchTerm) => console.log(searchTerm)} />
             </div>
+            <div className={`search-overlay ${showSearch ? 'show-search-bar' : ''}`} onClick={handleSearchClick}></div>
+            <Container className={`search-bar-container ${showSearch ? 'show-search-bar' : ''}`}>
+                <Search onSearch={(searchTerm) => console.log(searchTerm)} />
+            </Container>
         </Container>
     );
 }
