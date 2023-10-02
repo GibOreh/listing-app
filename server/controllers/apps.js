@@ -9,7 +9,7 @@ const createApp = asyncHandler(async(req,res)=>{
     const newApp = await App.create(req.body)
     return res.status(200).json({
         success: newApp ? true : false,
-        createApp: newApp ? newApp : 'Cannot create new app'
+        createApp: newApp ? newApp : 'Cannot create new App'
     })
 })
 
@@ -60,7 +60,7 @@ const updateApp = asyncHandler(async(req,res)=>{
     const updateApp = await App.findByIdAndUpdate(pid,req.body, {new: true})
     return res.status(200).json({
         success: updateApp ? true : false,
-        appData: updateApp ? updateApp : 'Cannot update app'
+        appData: updateApp ? updateApp : 'Cannot update App'
     })
 })
 
@@ -69,9 +69,28 @@ const deleteApp = asyncHandler(async(req,res)=>{
     const deleteApp = await App.findByIdAndDelete(pid)
     return res.status(200).json({
         success: deleteApp ? true : false,
-        appData: deleteApp ? deleteApp : 'Cannot delete app'
+        appData: deleteApp ? deleteApp : 'Cannot delete App'
     })
 })
+
+const searchAppByTitle = asyncHandler(async (req, res) => {
+  const { query } = req.query; 
+  try {
+    const apps = await App.find({
+      title: { $regex: query, $options: 'i' }, 
+    });
+
+    return res.status(200).json({
+      appData:  apps 
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      error: 'Server error',
+    });
+  }
+});
 
 
 
@@ -80,5 +99,6 @@ module.exports = {
     getApp,
     getApps,
     updateApp,
-    deleteApp
+    deleteApp,
+    searchAppByTitle
 }

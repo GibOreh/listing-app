@@ -1,7 +1,8 @@
 const Game = require('../models/games')
 const asyncHandler = require('express-async-handler')
 const slugify = require('slugify')
-const data = require('../../data/data.json')
+const data = require('../../data/dataGame.json')
+// const data = require('../../data/dataApp.json')
 
 const fn = async(game) => {
     await Game.create({
@@ -17,8 +18,9 @@ const fn = async(game) => {
         description: game?.description,
         modFeatures: game?.modFeatures,
         isAPK: game?.isAPK,
-        isMod: game?.isMod
-
+        isMod: game?.isMod,
+        isEditorsChoice: game?.isEditorsChoice,
+        rating: game?.rating
     })
 }
 const insertGame = asyncHandler(async(req,res)=>{

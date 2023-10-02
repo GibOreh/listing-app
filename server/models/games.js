@@ -80,6 +80,14 @@ var gameSchema = new mongoose.Schema({
         type: Boolean,
         required:true,
     },
+    isEditorsChoice:{
+        type: Boolean,
+        required:true,
+    },
+    rating:{
+        type: Number,
+        required:true,
+    },
 },{
     timestamps: true
 });

@@ -1,40 +1,63 @@
-import React, { useState } from 'react';
-import { Navbar, Nav, Container, FormControl, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom'; 
+import Search from '~/pages/Home/Search';
+import { HiBars3 } from "react-icons/hi2";
+import './styles.css'; 
 
 function Header() {
-    const [expanded, setExpanded] = useState(true);
+    const [showNav, setShowNav] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
+    const location = useLocation(); 
 
     const handleToggle = () => {
-        setExpanded(!expanded);
+        setShowNav(!showNav);
     };
+
+    const handleSearchClick = () => {
+        setShowSearch(!showSearch);
+        setShowNav(false); 
+    };
+
+    useEffect(() => {
+        setShowNav(false);
+        setShowSearch(false);
+    }, [location.pathname]); 
+
     return (
-        <Navbar bg="light" variant="light" expand="lg">
-            <Container>
-                <Navbar.Brand href="/" className="text-dark">
-                    APKMODY
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarNav" onClick={handleToggle} aria-expanded={expanded} />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto">
-                        <Nav.Link href="/game-category" className="text-dark mx-3">
-                            Games
-                        </Nav.Link>
-                        <Nav.Link href="/app-category" className="text-dark mx-3">
-                            Apps
-                        </Nav.Link>
-                        <Nav.Link href="/articles" className="text-dark mx-3">
-                            Articles
-                        </Nav.Link>
-                    </Nav>
-                    <Nav className="ml-auto">
-                        <FormControl type="text" placeholder="Search..." className="mr-sm-2 " />
-                        <Button variant="light" className="mt-2 mt-lg-0">
-                            Search
-                        </Button>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <Container>
+                <Navbar
+                    expand="lg"
+                    variant="light"
+                    className="my-4"
+                    expanded={showNav}
+                >
+                    <Navbar.Brand href="/" className="text-dark">
+                        APKMODY
+                    </Navbar.Brand>
+                    <HiBars3 onClick={handleToggle} />
+                    <Navbar.Collapse id="responsive-navbar-nav" collapseOnSelect>
+                        <Nav className={`ml-auto flex-column flex-lg-row ${showNav ? 'show-nav' : ''}`}>
+                            <Nav.Link href="/game-category" className={`text-dark mx-3 ${location.pathname === '/game-category' ? 'actived' : ''}`}>
+                                Games
+                            </Nav.Link>
+                            <Nav.Link href="/app-category" className={`text-dark mx-3 ${location.pathname === '/app-category' ? 'actived' : ''}`}>
+                                Apps
+                            </Nav.Link>
+                            <Nav.Link href="/articles" className={`text-dark mx-3 ${location.pathname === '/articles' ? 'actived' : ''}`}>
+                                Articles
+                            </Nav.Link>
+                            <Nav.Link onClick={handleSearchClick} className="text-dark mx-3">
+                                Search
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+            <div className={`search-overlay ${showSearch ? 'show-search-bar' : ''}`} onClick={handleSearchClick}></div>
+            <div className={`search-bar-container ${showSearch ? 'show-search-bar' : ''}`}>
+                <Search onSearch={(searchTerm) => console.log(searchTerm)} />
+            </div>
+        </Container>
     );
 }
 

@@ -9,7 +9,9 @@
   "isMod": true,
   "isAPK": true,
   "description": "Don't Starve: Shipwrecked will be one of the weirdest survival games you'll ever play. Don't be surprised when you're surprised by hand-drawn graphics that look like they were made by amateurs and you're wondering whether you should play or not. Then the careless, free and cheerful style in that picture will lead you to many interesting and harmful factors. A game with such good features is worth experiencing.Unfortunate pirate encounters shipwreck and desert island survival adventure!\n\nBackground\nIt is known that Don't Starve: Shipwrecked is an extension of the Don't Starve game published by Klei Entertainment. This episode concerns naive pirate Wilson who is unfortunate enough to be shipwrecked and stranded on a tropical archipelago. So no matter how skilled a pirate he was in the past, Wilson now has to carefully find a way to survive so he can make it through the day in this place with no sign of humans.\n\nThe tropical world is very different\nThe story is about a tropical island, but what greets your eyes from the first screen frame will be a dark and gloomy space that is not fun at all. It's not wrong to call this an extremely strange survival game.",
-  "modFeatures": "Unlock"
+  "modFeatures": "Unlock",
+  "isEditorsChoice": true,
+  "rating": 5
 },
 {
   "title": "Ace Squadron: WW III Air Conflicts II",
@@ -22,7 +24,9 @@
   "releaseDate": "September 2, 2023",
   "image": [],
   "description": "Ace Squadron: WW II Air Conflicts – Control the fighter during World War II. The player will participate in many battles of that military conflict in the story campaign and multiplayer battles. While performing missions, the user must perform various combat missions related to destroying enemy aircraft. After completing all the missions, the player will be able to try his luck in PvP. For flying, there are several models of machines here and it is possible to use various types of air weapons.",
-  "modFeatures": "Unlock"
+  "modFeatures": "Unlock",
+  "isEditorsChoice": true,
+  "rating":4
 },
 {
   "title": "Subway Princess Runner II",
@@ -35,7 +39,9 @@
   "releaseDate": "September 12, 2023",
   "image": [],
   "description": "Ace Squadron: WW II Air Conflicts – Control the fighter during World War II. The player will participate in many battles of that military conflict in the story campaign and multiplayer battles. While performing missions, the user must perform various combat missions related to destroying enemy aircraft. After completing all the missions, the player will be able to try his luck in PvP. For flying, there are several models of machines here and it is possible to use various types of air weapons.",
-  "modFeatures": "Unlock"
+  "modFeatures": "Unlock",
+  "isEditorsChoice": true,
+  "rating": 3
 },
 {
   "title": "Slaughter: The Lost Outpost II",
@@ -48,7 +54,9 @@
   "releaseDate": "September 12, 2023",
   "image": [],
   "description": "Slaughter: The Lost Outpost exploits the theme of the underworld, where you need to find an escape route from a huge prison. This is also the next version of the famous Slaughter game series, which promises to bring you remarkable improvements. How will you help the main character defeat all dangerous enemies?",
-  "modFeatures": "Unlock"
+  "modFeatures": "Unlock",
+  "isEditorsChoice": true,
+  "rating":4
 },
 {
   "title": "Combat Master Mobile FPS II",
@@ -61,7 +69,9 @@
   "releaseDate": "June 21, 2023",
   "image": [],
   "description": "Slaughter: The Lost Outpost exploits the theme of the underworld, where you need to find an escape route from a huge prison. This is also the next version of the famous Slaughter game series, which promises to bring you remarkable improvements. How will you help the main character defeat all dangerous enemies?",
-  "modFeatures": "Unlock"
+  "modFeatures": "Unlock",
+  "isEditorsChoice": true,
+  "rating": 5
 },
 {
   "title": "Gun Strike Shoot 3D II",
@@ -74,7 +84,9 @@
   "releaseDate": "June 21, 2023",
   "image": [],
   "description": "Slaughter: The Lost Outpost exploits the theme of the underworld, where you need to find an escape route from a huge prison. This is also the next version of the famous Slaughter game series, which promises to bring you remarkable improvements. How will you help the main character defeat all dangerous enemies?",
-  "modFeatures": "Unlock"
+  "modFeatures": "Unlock",
+  "isEditorsChoice": true,
+  "rating": 1
 },
 {
   "title": "KUBOOM 3D: FPS Shooting Games II",
@@ -87,5 +99,7 @@
   "releaseDate": "June 21, 2023",
   "image": [],
   "description": "Slaughter: The Lost Outpost exploits the theme of the underworld, where you need to find an escape route from a huge prison. This is also the next version of the famous Slaughter game series, which promises to bring you remarkable improvements. How will you help the main character defeat all dangerous enemies?",
-  "modFeatures": "Unlock"
+  "modFeatures": "Unlock",
+  "isEditorsChoice": true,
+  "rating": 2
 }]

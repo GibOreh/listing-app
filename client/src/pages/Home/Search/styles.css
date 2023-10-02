@@ -1,0 +1,17 @@
+.search-container {
+    padding: 40px;
+}
+
+.search-input {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: #000000;
+}
+
+.search-button {
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    height: 47px
+}

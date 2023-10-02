@@ -1,6 +1,6 @@
-const mongoose = require('mongoose'); // Erase if already required
+const mongoose = require('mongoose'); 
+const slugify = require('slugify');
 
-// Declare the Schema of the Mongo model
 var appSchema = new mongoose.Schema({
     title:{
         type:String,
@@ -11,15 +11,10 @@ var appSchema = new mongoose.Schema({
         type:String,
         required:true,
         unique:true,
-        lowercase: true
+        lowercase: true,
+        strict: true
     },
-    description:{
-        type:String,
-        required:true,
-    },
-    modFeatures:{
-        type:String,
-    },
+
     category:{
         type: String,
         enum: [
@@ -27,7 +22,19 @@ var appSchema = new mongoose.Schema({
             'Entertainment', 
             'Education', 
             'Emulator', 
-            'Photography', 'Communication', 'Personalization', 'Music and Sound', 'Video Players and Edittors', 'Productivity', 'Automobiles and Vehicles', 'Art and Design', 'Travel and Local', 'Social', 'Life Styles', 'Other', 'New Genre'],
+            'Photography', 
+            'Communication', 
+            'Personalization', 
+            'Music and Sound', 
+            'Video Players and Edittors', 
+            'Productivity', 
+            'Automobiles and Vehicles', 
+            'Art and Design', 
+            'Travel and Local', 
+            'Social', 
+            'Life Styles', 
+            'Other', 
+            'New Genre'],
     },
     platform:{
         type:String,
@@ -53,11 +60,38 @@ var appSchema = new mongoose.Schema({
       name: String,
       url: String,
     },
-   
-    
+    description:{
+        type:String,
+        required:true,
+    },
+    modFeatures:{
+        type:String,
+    },
+    isAPK:{
+        type: Boolean,
+        required:true,
+    },
+    isMod:{
+        type: Boolean,
+        required:true,
+    },
+    isEditorsChoice:{
+        type: Boolean,
+        required:true,
+    },
+    rating:{
+        type: Number,
+        required:true,
+    },
 },{
     timestamps: true
 });
+appSchema.pre('validate', function(next) {
+    this.slug = slugify(this.title, { lower: true });
 
-//Export the model
+    this.slug = this.slug.replace(/[':]/g, ''); 
+
+    next();
+});
 module.exports = mongoose.model('Apps', appSchema);
+

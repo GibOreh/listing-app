@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const ctrls = require('../controllers/insertData')
+const ctrls = require('../controllers/insertDataGame')
 
 router.post('/',ctrls.insertGame)
 

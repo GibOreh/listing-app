@@ -1,17 +1,17 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetGames } from '~/apis/game';
 import Item from '../../Item';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function GamePopular() {
-        const [popular, setPopular] = useState([]);
+function GameUpdate() {
+        const [update, setUpdate] = useState([]);
         const [currentPage, setCurrentPage] = useState(1);
         const itemsPerPage = 6; 
 
         const fetchGames = async () => {
-            const response = await apiGetGames({ sort: 'releaseDate' });
-            setPopular(response.data.games);
+            const response = await apiGetGames({ sort: 'rating' });
+            setUpdate(response.data.games);
         };
 
         useEffect(() => {
@@ -20,7 +20,7 @@ function GamePopular() {
 
         const indexOfLastItem = currentPage * itemsPerPage;
         const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-        const currentItems = popular.slice(indexOfFirstItem, indexOfLastItem);
+        const currentItems = update.slice(indexOfFirstItem, indexOfLastItem);
 
         const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -34,10 +34,10 @@ function GamePopular() {
                 ))}
             </Row>
             <div className="pagination-container">
-                {Array.from({ length: Math.ceil(popular.length / itemsPerPage) }).map((_, index) => (
+                {Array.from({ length: Math.ceil(update.length / itemsPerPage) }).map((_, index) => (
                 <Button 
                     key={index} onClick={() => paginate(index + 1)}  
-                    className = {`mr-2 ${currentPage === index + 1 ? 'active' : ''}`}
+                    className={`mr-2 ${currentPage === index + 1 ? 'active' : ''}`}
                 >
                     {index + 1}
                 </Button>
@@ -47,4 +47,4 @@ function GamePopular() {
         );
 }
 
-export default GamePopular;
+export default GameUpdate;

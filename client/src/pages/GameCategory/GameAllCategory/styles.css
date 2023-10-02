@@ -5,6 +5,22 @@
     margin-top: 20px;
   }
   .pagination-container button{
-    background-color: #32373c;
+    background-color: black;
     border-radius: 44%;
 }
+
+.categories-list button {
+  background-color: transparent; 
+  color: black; 
+  padding: 10px; 
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.categories-list button.active {
+  background-color: black; 
+  color: #fff; 
+}
+
+

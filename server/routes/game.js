@@ -3,6 +3,7 @@ const ctrls = require('../controllers/games')
 
 router.post('/',ctrls.createGame)
 router.get('/',ctrls.getGames)
+router.get('/search', ctrls.searchGameByTitle);
 
 
 router.delete('/:pid',ctrls.deleteGame)

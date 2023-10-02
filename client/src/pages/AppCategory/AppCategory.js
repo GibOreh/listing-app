@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { Nav} from 'react-bootstrap';
 import './style.css';
-import Popular from './GamePopular'
-import Update from './GameUpdate'
-import NewReleases from './GameNewReleases'
-import AllCategory from './GameAllCategory'
+import Popular from './AppPopular'
+import Update from './AppUpdate'
+import NewReleases from './AppNewReleases'
+import AllCategory from './AppAllCategory'
 
 const tabs = [
     {id: 1, name: 'Update', content: <Update/>},
@@ -12,12 +12,12 @@ const tabs = [
     {id: 3, name: 'Popular', content: <Popular/>},
     {id: 4, name: 'All Category', content: <AllCategory/>},
 ]
-function GameCategory() {
+function AppCategory() {
     const [activedTab, setActiveTab] = useState(1)
 
   return (
     <div>
-        <h2>Game Category</h2>
+        <h2>App Category</h2>
         <p>
             For us, enthusiasts, the love for games never changes. And to keep that love burning, we created this
             category to store the best MOD APK, Paid APK & Original APK games, as a premise to build a “so deep”
@@ -46,4 +46,4 @@ function GameCategory() {
   )
 }
 
-export default GameCategory
+export default AppCategory

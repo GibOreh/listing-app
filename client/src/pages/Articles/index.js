@@ -1,72 +1,50 @@
-import React,  { useState } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
+import React, { useState, useEffect } from 'react';
+import './styles.css';
+import { apiGetGames } from '~/apis/game';
+import Item from '../Item';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
-const articlesPerPage = 6;
+function Article() {
+        const [newreleases, setNewReleases] = useState([]);
+        const [currentPage, setCurrentPage] = useState(1);
+        const itemsPerPage = 3; 
 
-const articles = [
-    {
-        title: 'Article 1',
-        author: 'Author 1',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
-        image: 'image1.jpg', 
-    },
-    {
-        title: 'Article 2',
-        author: 'Author 2',
-        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas...',
-        image: 'image2.jpg', // Đường dẫn đến ảnh cho bài viết này
-    },
-    {
-        title: 'Article 3',
-        author: 'Author 3',
-        content: 'Vestibulum venenatis nunc id libero cursus, nec luctus tellus congue...',
-        image: 'image3.jpg', // Đường dẫn đến ảnh cho bài viết này
-    },
-];
+        const fetchGames = async () => {
+            const response = await apiGetGames({ sort: 'updateAt' });
+            setNewReleases(response.data.games);
+        };
 
-function Articles() {
-    const [currentPage, setCurrentPage] = useState(0); 
+        useEffect(() => {
+            fetchGames();
+        }, []);
 
-    const handlePageChange = (selectedPage) => {
-        setCurrentPage(selectedPage.selected);
-    };
+        const indexOfLastItem = currentPage * itemsPerPage;
+        const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+        const currentItems = newreleases.slice(indexOfFirstItem, indexOfLastItem);
 
-    const offset = currentPage * articlesPerPage;
-    const currentArticles = articles.slice(offset, offset + articlesPerPage);
-    return (
-        <Container>
-            <h1 className="my-4">Articles</h1>
-            {articles.map((article, index) => (
-                <Row key={index} className="mb-4">
-                    <Col>
-                        <Card>
-                            <Link to={`/articles/`} style={{ textDecoration: 'none' }}>
-                                <Card.Img variant="top" src={article.image} alt={article.title} />
-                                <Card.Body>
-                                    <Card.Title className="text-dark">{article.title}</Card.Title>
-                                    <Card.Title>{article.title}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">{article.author}</Card.Subtitle>
-                                    <Card.Text>{article.content}</Card.Text>
-                                </Card.Body>
-                            </Link>
-                        </Card>
-                    </Col>
-                </Row>
-            ))}
-            <Container className="text-center">
-                <ReactPaginate
-                    previousLabel={'Previous'}
-                    nextLabel={'Next'}
-                    pageCount={Math.ceil(articles.length / articlesPerPage)}
-                    onPageChange={handlePageChange}
-                    containerClassName={'pagination justify-content-center'}
-                    activeClassName={'active'}
-                />
+        const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+        return (
+            <Container>
+            <Row>
+                {currentItems.map((el) => (
+                <Col lg={12} xs={12}>
+                    <Item key={el.id} itemData={el} />
+                </Col>
+                ))}
+            </Row>
+            <div className="pagination-container">
+                {Array.from({ length: Math.ceil(newreleases.length / itemsPerPage) }).map((_, index) => (
+                <Button 
+                    key={index} onClick={() => paginate(index + 1)}  
+                    className={`mr-2 ${currentPage === index + 1 ? 'active' : ''}`}
+                >
+                    {index + 1}
+                </Button>
+                ))}
+            </div>
             </Container>
-        </Container>
-    );
+        );
 }
 
-export default Articles;
+export default Article;

@@ -1,0 +1,10 @@
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 20px;
+  }
+  .pagination-container button{
+    background-color: black;
+    border-radius: 44%;
+}

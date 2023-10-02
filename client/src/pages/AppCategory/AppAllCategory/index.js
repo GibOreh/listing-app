@@ -1,117 +1,84 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
+import { apiGetApps } from '~/apis/app';
+import Item from '../../Item';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
-const appsPerPage = 6;
-
-const apps = [
-    {
-        title: 'Game 1',
-        description: 'Description of Game 1...',
-        image: 'game1.jpg',
-    },
-    {
-        title: 'Game 2',
-        description: 'Description of Game 2...',
-        image: 'game2.jpg',
-    },
-    {
-        title: 'Game 2',
-        description: 'Description of Game 2...',
-        image: 'game2.jpg',
-    },
-    {
-        title: 'Game 2',
-        description: 'Description of Game 2...',
-        image: 'game2.jpg',
-    },
-    {
-        title: 'Game 2',
-        description: 'Description of Game 2...',
-        image: 'game2.jpg',
-    },
-    {
-        title: 'Game 2',
-        description: 'Description of Game 2...',
-        image: 'game2.jpg',
-    },
-    {
-        title: 'Game 2',
-        description: 'Description of Game 2...',
-        image: 'game2.jpg',
-    },
-];
 function AppAllCategory() {
-    const [currentPage, setCurrentPage] = useState(0); // Page index bắt đầu từ 0
+    const [allCategories, setAllCategories] = useState([]);
+    const [currentCategory, setCurrentCategory] = useState(null);
+    const [appsInCategory, setAppsInCategory] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 6;
 
-    const handlePageChange = (selectedPage) => {
-        setCurrentPage(selectedPage.selected);
+    const fetchCategories = async () => {
+        const response = await apiGetApps({ sort: 'category' });
+        const categories = response.data.apps.map((app) => app.category);
+        const uniqueCategories = [...new Set(categories)];
+        setAllCategories(uniqueCategories);
     };
 
-    const offset = currentPage * appsPerPage;
-    const currentApps = apps.slice(offset, offset + appsPerPage);
+    const fetchAppsInCategory = async (category) => {
+        const response = await apiGetApps({ category });
+        setAppsInCategory(response.data.apps);
+    };
+
+    const handleCategoryClick = (category) => {
+        setCurrentCategory(category);
+        fetchAppsInCategory(category);
+        setCurrentPage(1);
+    };
+
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = appsInCategory.slice(indexOfFirstItem, indexOfLastItem);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <Container>
-            <h2>Game Category</h2>
-            <p>
-                For us, enthusiasts, the love for games never changes. And to keep that love burning, we created this
-                category to store the best MOD APK, Paid APK & Original APK games, as a premise to build a “so deep”
-                playground for gamers. When participating in this journey, you will discover a new game world, a new
-                land that you have never known. There are countless attractive, unique, and worth-playing titles shared
-                every day. And a part of them are MOD APK games that serve the growing needs of many players. Especially
-                we don’t charge anything!
-            </p>
-            <nav>
-                <ul className="list-inline">
-                    <li className="list-inline-item px-2 col-2 d-inline">
-                        <Link to="/app-category/update">Update</Link>
-                    </li>
-                    <li className="list-inline-item px-2 col-2 d-inline">
-                        <Link to="/app-category/new-releases">New Releases</Link>
-                    </li>
-                    <li className="list-inline-item px-2 col-2 d-inline">
-                        <Link to="/app-category/popular">Popular</Link>
-                    </li>
-                    <li className="list-inline-item px-2 col-2 d-inline">
-                        <Link to="/app-category/all-category">All Category</Link>
-                    </li>
-                </ul>
-            </nav>
             <Row>
-                {currentApps.map((app, index) => (
-                    <Col key={index} md={4} sm={6} xs={12} className="mb-4">
-                        <Card>
-                            <Link to={`/product-detail/${app.id}`} style={{ textDecoration: 'none' }}>
-                                <Card.Img variant="top" src={app.image} alt={app.title} />
-                                <Card.Body>
-                                    <Card.Title className="text-dark">{app.title}</Card.Title>
-                                    <Card.Text className="text-dark">{app.description}</Card.Text>
-                                    <Badge pill bg="success" className="mr-3 text-light px-3">
-                                        APK
-                                    </Badge>
-                                    <Badge pill bg="danger text-light px-3">
-                                        MOD
-                                    </Badge>
-                                </Card.Body>
-                            </Link>
-                        </Card>
+                <Col lg={12}>
+                    <div className="categories-list">
+                        {allCategories.map((category, index) => (
+                            <Button
+                                key={index}
+                                variant="dark"
+                                onClick={() => handleCategoryClick(category)}
+                                className={category === currentCategory ? 'active' : ''}
+                            >
+                                {category}
+                            </Button>
+                        ))}
+                    </div>
+                </Col>
+            </Row>
+            <Row>
+                {currentItems.map((el, index) => (
+                    <Col key={index} lg={4} xs={12}>
+                        <Item key={el.id} itemData={el} />
                     </Col>
                 ))}
             </Row>
-
-            <Container className="text-center">
-                <ReactPaginate
-                    previousLabel={'Previous'}
-                    nextLabel={'Next'}
-                    pageCount={Math.ceil(apps.length / appsPerPage)}
-                    onPageChange={handlePageChange}
-                    containerClassName={'pagination justify-content-center'}
-                    activeClassName={'active'}
-                />
-            </Container>
+            <Row>
+                <Col lg={12}>
+                    <div className="pagination-container">
+                        {Array.from({ length: Math.ceil(appsInCategory.length / itemsPerPage) }).map((_, index) => (
+                            <Button
+                                key={index}
+                                onClick={() => paginate(index + 1)}
+                                className={`mr-2 ${currentPage === index + 1 ? 'active' : ''}`}
+                            >
+                                {index + 1}
+                            </Button>
+                        ))}
+                    </div>
+                </Col>
+            </Row>
         </Container>
     );
 }

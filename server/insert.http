@@ -1,2 +1,6 @@
 ###
-POST http://localhost:5002/api/insert/
+POST http://localhost:5002/api/insert-game/
+
+###
+
+POST http://localhost:5002/api/insert-app/
