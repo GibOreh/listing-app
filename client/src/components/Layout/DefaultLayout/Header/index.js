@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom'; 
 import Search from '~/pages/Home/Search';
-import { HiBars3 } from "react-icons/hi2";
 import './styles.css'; 
 
 function Header() {
     const [showNav, setShowNav] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
     const location = useLocation(); 
+    const navRef = useRef(null); 
 
     const handleToggle = () => {
         setShowNav(!showNav);
@@ -20,24 +20,39 @@ function Header() {
     };
 
     useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setShowNav(false);
+            }
+        };
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
         setShowNav(false);
         setShowSearch(false);
     }, [location.pathname]); 
 
     return (
         <Container>
+            {showNav && <div className="overlay"></div>}
             <div>
                 <Navbar
                     expand="lg"
                     variant="light"
-                    className="my-4"
+                    className="my-4 navbar-custom"
                     expanded={showNav}
+                    ref={navRef} 
                 >
                     <Navbar.Brand href="/" className="text-dark">
                         APKMODY
                     </Navbar.Brand>
-                    <HiBars3 onClick={handleToggle} />
-                    <Navbar.Collapse id="responsive-navbar-nav" collapseOnSelect>
+                    <Navbar.Toggle onClick={handleToggle}></Navbar.Toggle>
+                    <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className={`ml-auto flex-column flex-lg-row ${showNav ? 'show-nav' : ''}`}>
                             <Nav.Link href="/game-category" className={`text-dark mx-3 ${location.pathname === '/game-category' ? 'actived' : ''}`}>
                                 Games
@@ -64,3 +79,4 @@ function Header() {
 }
 
 export default Header;
+    
