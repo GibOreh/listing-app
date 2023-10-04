@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetGames } from '~/apis/game';
-import Item from '../Item';
+import Blog from '../Blog';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function Article() {
@@ -17,7 +17,6 @@ function Article() {
         useEffect(() => {
             fetchGames();
         }, []);
-
         const indexOfLastItem = currentPage * itemsPerPage;
         const indexOfFirstItem = indexOfLastItem - itemsPerPage;
         const currentItems = newreleases.slice(indexOfFirstItem, indexOfLastItem);
@@ -29,7 +28,7 @@ function Article() {
             <Row>
                 {currentItems.map((el) => (
                 <Col lg={12} xs={12}>
-                    <Item key={el.id} itemData={el} />
+                    <Blog key={el.id} itemData={el} />
                 </Col>
                 ))}
             </Row>

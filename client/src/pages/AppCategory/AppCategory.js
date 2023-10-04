@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { Nav} from 'react-bootstrap';
 import './style.css';
-import Popular from './AppPopular'
-import Update from './AppUpdate'
-import NewReleases from './AppNewReleases'
-import AllCategory from './AppAllCategory'
+import Popular from './AppPopular/AppPopular'
+import Update from './AppUpdate/AppUpdate'
+import NewReleases from './AppNewReleases/AppNewReleases'
+import AllCategory from './AppAllCategory/AppAllCategory'
 
 const tabs = [
     {id: 1, name: 'Update', content: <Update/>},
@@ -40,7 +40,6 @@ function AppCategory() {
         </Nav>
         <div>
             {tabs[activedTab - 1].content}
-            {/* {JSON.stringify(update)} */}
         </div>
     </div>
   )

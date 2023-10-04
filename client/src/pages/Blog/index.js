@@ -2,7 +2,7 @@
     import { Card, Badge } from 'react-bootstrap';
     import { Link } from 'react-router-dom';
 
-    const Items = ({itemData}) => {
+    const Blogs = ({itemData}) => {
         return (
             <div className='nav-content-item'>
                     <div key={itemData.id} className="mb-4">
@@ -29,4 +29,4 @@
         );
     }
 
-    export default Items;
+    export default Blogs;

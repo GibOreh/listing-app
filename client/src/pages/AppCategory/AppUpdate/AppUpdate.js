@@ -4,14 +4,14 @@ import { apiGetApps } from '~/apis/app';
 import Item from '../../Item';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function AppNewReleases() {
-        const [newreleases, setNewReleases] = useState([]);
+function AppUpdate() {
+        const [update, setUpdate] = useState([]);
         const [currentPage, setCurrentPage] = useState(1);
         const itemsPerPage = 6; 
 
         const fetchApps = async () => {
-            const response = await apiGetApps({ sort: 'version' });
-            setNewReleases(response.data.apps);
+            const response = await apiGetApps({ sort: 'rating' });
+            setUpdate(response.data.apps);
         };
 
         useEffect(() => {
@@ -20,7 +20,7 @@ function AppNewReleases() {
 
         const indexOfLastItem = currentPage * itemsPerPage;
         const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-        const currentItems = newreleases.slice(indexOfFirstItem, indexOfLastItem);
+        const currentItems = update.slice(indexOfFirstItem, indexOfLastItem);
 
         const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -34,7 +34,7 @@ function AppNewReleases() {
                 ))}
             </Row>
             <div className="pagination-container">
-                {Array.from({ length: Math.ceil(newreleases.length / itemsPerPage) }).map((_, index) => (
+                {Array.from({ length: Math.ceil(update.length / itemsPerPage) }).map((_, index) => (
                 <Button 
                     key={index} onClick={() => paginate(index + 1)}  
                     className={`mr-2 ${currentPage === index + 1 ? 'active' : ''}`}
@@ -47,4 +47,4 @@ function AppNewReleases() {
         );
 }
 
-export default AppNewReleases;
+export default AppUpdate;

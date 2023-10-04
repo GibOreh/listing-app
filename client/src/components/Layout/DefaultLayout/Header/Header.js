@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom'; 
-import Search from '~/pages/Home/Search';
+import Search from '~/pages/Search/Search';
 import './styles.css'; 
 
 function Header() {

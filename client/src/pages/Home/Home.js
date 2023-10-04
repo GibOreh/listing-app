@@ -3,7 +3,7 @@ import { Container} from 'react-bootstrap';
 import EditorChoice from './EditorChoice'; 
 import GameUpdate from './GameUpdate';
 import AppUpdate from './AppUpdate';
-import Search from './Search';
+import Search from '../Search/Search';
 
 
 function Home() {

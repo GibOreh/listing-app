@@ -4,7 +4,7 @@ import { apiGetApps } from '~/apis/app';
 import Item from '../../Item';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
-function AppUpdate() {
+function AppPopular() {
         const [update, setUpdate] = useState([]);
         const [currentPage, setCurrentPage] = useState(1);
         const itemsPerPage = 6; 
@@ -47,4 +47,4 @@ function AppUpdate() {
         );
 }
 
-export default AppUpdate;
+export default AppPopular;
