@@ -1,0 +1,57 @@
+.game-info {
+    background-color: rgba(240, 248, 255, 1); 
+  }
+.game-info-item {
+    text-align: left;
+  }
+  .game-info-data {
+    text-align: right;
+  }
+  
+  .game-info p {
+    color: #333; 
+    font-size: 16px;
+  }
+  .red-text{
+    color: red
+  }
+
+.game-header img {
+  max-width: 100%; 
+}
+
+.link-without-underline:hover {
+    text-decoration: none; 
+}
+
+.game-header h2 {
+  color: #333; 
+  font-size: 24px; 
+  margin-top: 10px; 
+}
+
+.game-info {
+  background-color: #f0f8ff; 
+  border-radius: 10px;
+  padding: 20px; 
+}
+
+.game-info p {
+  color: #333; 
+  font-size: 16px; 
+}
+
+.full-width-button {
+    width: 100%; 
+    margin-bottom: 10px;
+}
+
+.img-left {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  
+
+  
