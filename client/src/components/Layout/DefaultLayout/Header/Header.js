@@ -44,7 +44,7 @@ function Header() {
                 <Navbar
                     expand="lg"
                     variant="light"
-                    className="my-4 navbar-custom"
+                    className="my-2 navbar-custom"
                     expanded={showNav}
                     ref={navRef} 
                 >

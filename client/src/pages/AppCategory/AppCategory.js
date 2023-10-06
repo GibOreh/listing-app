@@ -45,4 +45,4 @@ function AppCategory() {
   )
 }
 
-export default AppCategory
+export default AppCategory;

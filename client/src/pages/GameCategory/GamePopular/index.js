@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetGames } from '~/apis/game';
-import Item from '../../Item';
+import GameItem from '../../GameItem';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function GameUpdate() {
@@ -29,7 +29,7 @@ function GameUpdate() {
             <Row>
                 {currentItems.map((el) => (
                 <Col lg={4} xs={12}>
-                    <Item key={el.id} itemData={el} />
+                    <GameItem key={el.id} itemData={el} />
                 </Col>
                 ))}
             </Row>

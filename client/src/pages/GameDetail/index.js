@@ -19,15 +19,25 @@ function ItemDetail() {
   }, [_id]);
 
   return (
-    <Container className="mt-4">
+    <Container className="bg-gray">
       <Row>
         <Col lg={{ span: 8, offset: 2 }}>
-          <div className="game-header text-center">
-            <img src={gameData.image} alt={gameData.title} />
-            <h2>{gameData.title} {gameData.modFeatures}</h2>
-            <h2>{gameData.category}</h2>
-            <Button variant="primary" href={gameData.downloadLink} target="_blank" className="full-width-button my-4">Download</Button>
-          </div>
+          <Container className="game-header text-center">
+          <Row>
+            <Col lg={2} xs={3} className="text-center">
+              <div className="game-header">
+                <img src={gameData.image} alt={gameData.title} />
+              </div>
+            </Col>
+            <Col lg={10} xs={9}>
+              <div className="game-header text-left">
+                <h4>{gameData.title} {gameData.modFeatures}</h4>
+                <p>{gameData.category}</p>
+              </div>
+            </Col>  
+          </Row>
+          </Container>
+          <Button variant="primary" href={gameData.downloadLink} target="_blank" className="full-width-button my-4">Download</Button>
           <Container className="game-info mb-4">
             <Row>
               <Col className="game-info-item mt-4">Name</Col>

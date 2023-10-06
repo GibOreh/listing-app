@@ -1,6 +1,14 @@
-.game-info {
-    background-color: rgba(240, 248, 255, 1); 
+.bg-gray {
+  background-color: #f5f5f5; 
+  padding: 20px; 
+}
+
+.game-info, .game-header {
+    background-color: white; 
+    border-radius: 10px;
+    padding: 10px; 
   }
+
 .game-info-item {
     text-align: left;
   }
@@ -28,12 +36,6 @@
   color: #333; 
   font-size: 24px; 
   margin-top: 10px; 
-}
-
-.game-info {
-  background-color: #f0f8ff; 
-  border-radius: 10px;
-  padding: 20px; 
 }
 
 .game-info p {

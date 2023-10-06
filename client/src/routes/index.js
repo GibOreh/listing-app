@@ -1,5 +1,5 @@
 import Home from '~/pages/Home/Home';
-import ProductDetail from '~/pages/ItemDetail';
+import ProductDetail from '~/pages/GameDetail';
 import Articles from '~/pages/Articles';
 import GameCategory from '~/pages/GameCategory/GameCategory.js';
 import AppCategory from '~/pages/AppCategory/AppCategory.js';
@@ -11,7 +11,7 @@ import AppUpdate from '~/pages/AppCategory/AppUpdate/AppUpdate'
 import AppPopular from '~/pages/AppCategory/AppPopular/AppPopular'
 import AppReleases from '~/pages/AppCategory/AppNewReleases/AppNewReleases'
 import AppAllCategory from '~/pages/AppCategory/AppAllCategory/AppAllCategory'
-import GameDetail from '~/pages/ItemDetail'
+import GameDetail from '~/pages/GameDetail'
 import AppDetail from '~/pages/AppDetail'
 import Result from '~/pages/Result'
 import GameCategoryDetail from '~/pages/GameCategoryDetail'
@@ -32,8 +32,8 @@ const publicRoutes = [
     { path: '/app-category/popular', component: AppPopular},
     { path: '/app-category/new-releases', component: AppReleases},
     { path: '/app-category/all-category', component: AppAllCategory},
-    { path: "/item/:slug/:_id", component: GameDetail},
-    { path: "/item/:slug/:_id", component: AppDetail},
+    { path: "/games/:slug/:_id", component: GameDetail},
+    { path: "/apps/:slug/:_id", component: AppDetail},
     { path: "/category/:categoryName", component: GameCategoryDetail},
 
 ];

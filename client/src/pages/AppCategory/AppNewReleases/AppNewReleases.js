@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetApps } from '~/apis/app';
-import Item from '../../Item';
+import AppItem from '../../AppItem';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function AppNewReleases() {
@@ -29,7 +29,7 @@ function AppNewReleases() {
             <Row>
                 {currentItems.map((el) => (
                 <Col lg={4} xs={12}>
-                    <Item key={el.id} itemData={el} />
+                    <AppItem key={el.id} itemData={el} />
                 </Col>
                 ))}
             </Row>
