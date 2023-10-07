@@ -2,7 +2,6 @@ const Game = require('../models/games')
 const asyncHandler = require('express-async-handler')
 const slugify = require('slugify')
 const data = require('../../data/dataGame.json')
-// const data = require('../../data/dataApp.json')
 
 const fn = async(game) => {
     await Game.create({

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiSearchGame } from '~/apis/game';
-import Item from '../GameItem';
+import Item from '../GameItem/GameItem';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function Results() {

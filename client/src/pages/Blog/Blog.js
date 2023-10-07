@@ -1,5 +1,5 @@
     import React from 'react'
-    import { Card, Badge } from 'react-bootstrap';
+    import { Card } from 'react-bootstrap';
     import { Link } from 'react-router-dom';
 
     const Blogs = ({itemData}) => {
@@ -10,17 +10,7 @@
                         <Link className="text-dark" to={`/item/${itemData.slug}/${itemData._id}`} style={{ textDecoration: 'none' }}>
                             <Card.Img variant="top" src={itemData.image} alt={itemData.title} />
                             <Card.Body>
-                            <Card.Text className="text-dark">{itemData.version} • {itemData.modFeatures}</Card.Text>
-                                {itemData.isAPK && (
-                                    <Badge pill bg="success" className="mr-3 text-light px-3">
-                                        APK
-                                    </Badge>
-                                )}
-                                {itemData.isMod && ( 
-                                    <Badge pill bg="danger" className="mr-3 text-light px-3">
-                                        MOD
-                                    </Badge>
-                                )}
+                                <Card.Text className="text-dark">{itemData.releasesDate}</Card.Text>
                             </Card.Body>
                         </Link>
                         </Card>

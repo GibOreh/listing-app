@@ -1,8 +1,8 @@
 import { Container} from 'react-bootstrap';
 
-import EditorChoice from './EditorChoice'; 
-import GameUpdate from './GameUpdate';
-import AppUpdate from './AppUpdate';
+import EditorChoice from './EditorChoice/EditorChoice'; 
+import GameUpdate from './GameUpdate/GameUpdate';
+import AppUpdate from './AppUpdate/AppUpdate';
 import Search from '../Search/Search';
 
 

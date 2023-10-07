@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetGames } from '~/apis/game';
-import GameItem from '../../GameItem';
+import GameItem from '../../GameItem/GameItem';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function GameNewReleases() {

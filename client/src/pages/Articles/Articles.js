@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetGames } from '~/apis/game';
-import Blog from '../Blog';
+import Blog from '../Blog/Blog';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function Article() {

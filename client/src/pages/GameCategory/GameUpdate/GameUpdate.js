@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetGames } from '~/apis/game';
-import GameItem from '../../GameItem';
+import GameItem from '../../GameItem/GameItem';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function GameUpdate() {
@@ -10,7 +10,7 @@ function GameUpdate() {
         const itemsPerPage = 6; 
 
         const fetchGames = async () => {
-            const response = await apiGetGames({ sort: 'rating' });
+            const response = await apiGetGames({ sort: 'updatedAt' });
             setUpdate(response.data.games);
         };
 
@@ -28,7 +28,7 @@ function GameUpdate() {
             <Container>
             <Row>
                 {currentItems.map((el) => (
-                <Col lg={4} xs={12}>
+                <Col key={el.id} lg={4} xs={12}>
                     <GameItem key={el.id} itemData={el} />
                 </Col>
                 ))}

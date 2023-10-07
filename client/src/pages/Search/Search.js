@@ -17,6 +17,10 @@ function Search() {
     };
 
     const handleSearchClick = () => {
+        if (!searchTerm) {
+            return;
+        }
+
         setDebouncedSearchTerm(searchTerm);
         navigate(`/results/${searchTerm}`);
     };

@@ -43,7 +43,7 @@ function AppDetail() {
               <Col className="app-info-item mt-4">Name</Col>
               <Col lg={6} xs={9} className="app-info-data mt-4">{appData.title}</Col>
               <Col lg={6} xs={3} className="app-info-item mt-4">Category</Col>
-              <Col lg={6} xs={9} className="app-info-data mt-4"><Link to={`/category/${appData.category}`} className="link-without-underline">{appData.category}</Link></Col>
+              <Col lg={6} xs={9} className="app-info-data mt-4"><Link to={`/app-category/${appData.category}`} className="link-without-underline">{appData.category}</Link></Col>
               <Col lg={6} xs={3} className="app-info-item mt-4">Version</Col>
               <Col lg={6} xs={9} className="app-info-data mt-4">{appData.version}</Col>
               <Col lg={6} xs={3} className="app-info-item mt-4">MOD</Col>

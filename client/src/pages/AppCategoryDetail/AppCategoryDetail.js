@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiGetApps } from '~/apis/app';
-import AppItem from '~/pages/AppItem'
+import AppItem from '~/pages/AppItem/AppItem'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function AppCategoryDetail() {

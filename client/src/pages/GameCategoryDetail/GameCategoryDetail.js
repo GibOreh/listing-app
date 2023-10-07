@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { apiGetGames } from '~/apis/game';
-import GameItem from '~/pages/GameItem'
+import GameItem from '~/pages/GameItem/GameItem'
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function CategoryDetail() {

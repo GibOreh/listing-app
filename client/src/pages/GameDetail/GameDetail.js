@@ -43,7 +43,7 @@ function ItemDetail() {
               <Col className="game-info-item mt-4">Name</Col>
               <Col lg={6} xs={9} className="game-info-data mt-4">{gameData.title}</Col>
               <Col lg={6} xs={3} className="game-info-item mt-4">Category</Col>
-              <Col lg={6} xs={9} className="game-info-data mt-4"><Link to={`/category/${gameData.category}`} className="link-without-underline">{gameData.category}</Link></Col>
+              <Col lg={6} xs={9} className="game-info-data mt-4"><Link to={`/game-category/${gameData.category}`} className="link-without-underline">{gameData.category}</Link></Col>
               <Col lg={6} xs={3} className="game-info-item mt-4">Version</Col>
               <Col lg={6} xs={9} className="game-info-data mt-4">{gameData.version}</Col>
               <Col lg={6} xs={3} className="game-info-item mt-4">MOD</Col>

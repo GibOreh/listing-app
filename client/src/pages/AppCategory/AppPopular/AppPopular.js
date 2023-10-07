@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
 import { apiGetApps } from '~/apis/app';
-import AppItem from '../../AppItem';
+import AppItem from '../../AppItem/AppItem';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function AppPopular() {

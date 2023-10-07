@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { Nav} from 'react-bootstrap';
 import './style.css';
-import Popular from './GamePopular'
-import Update from './GameUpdate'
-import NewReleases from './GameNewReleases'
-import AllCategory from './GameAllCategory'
+import Popular from './GamePopular/GamePopular'
+import Update from './GameUpdate/GameUpdate'
+import NewReleases from './GameNewReleases/GameNewReleases'
+import AllCategory from './GameAllCategory/GameAllCategory'
 
 const tabs = [
     {id: 1, name: 'Update', content: <Update/>},

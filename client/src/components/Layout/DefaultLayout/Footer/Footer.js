@@ -12,21 +12,11 @@ const Footer = () => {
                         <ul className="list-unstyled">
                             <li>
                                 <a href="/about" className="footer-link">
-                                    About
+                                    About us
                                 </a>
                             </li>
                             <li>
-                                <a href="/contact" className="footer-link">
-                                    Contact
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/terms" className="footer-link">
-                                    Terms of Services
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/privacy" className="footer-link">
+                                <a href="/policy" className="footer-link">
                                     Privacy Policy
                                 </a>
                             </li>

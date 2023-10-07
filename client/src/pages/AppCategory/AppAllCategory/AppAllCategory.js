@@ -25,7 +25,7 @@ function AppAllCategory() {
 
     const handleCategoryClick = (category) => {
         setCurrentCategory(category);
-        navigate(`/category/${category}`);
+        navigate(`/app-category/${category}`);
         setCurrentPage(1);
     };
 

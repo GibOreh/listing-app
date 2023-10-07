@@ -25,7 +25,7 @@ function GameAllCategory() {
 
     const handleCategoryClick = (category) => {
         setCurrentCategory(category);
-        navigate(`/category/${category}`);
+        navigate(`/game-category/${category}`);
         setCurrentPage(1);
     };
 

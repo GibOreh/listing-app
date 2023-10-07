@@ -1,20 +1,24 @@
 import Home from '~/pages/Home/Home';
-import ProductDetail from '~/pages/GameDetail';
-import Articles from '~/pages/Articles';
+import ProductDetail from '~/pages/GameDetail/GameDetail';
+import Articles from '~/pages/Articles/Articles';
 import GameCategory from '~/pages/GameCategory/GameCategory.js';
 import AppCategory from '~/pages/AppCategory/AppCategory.js';
-import GameUpdate from '~/pages/GameCategory/GameUpdate'
-import GamePopular from '~/pages/GameCategory/GamePopular'
-import GameReleases from '~/pages/GameCategory/GameNewReleases'
-import GameAllCategory from '~/pages/GameCategory/GameAllCategory';
+import GameUpdate from '~/pages/GameCategory/GameUpdate/GameUpdate'
+import GamePopular from '~/pages/GameCategory/GamePopular/GamePopular'
+import GameReleases from '~/pages/GameCategory/GameNewReleases/GameNewReleases'
+import GameAllCategory from '~/pages/GameCategory/GameAllCategory/GameAllCategory';
 import AppUpdate from '~/pages/AppCategory/AppUpdate/AppUpdate'
 import AppPopular from '~/pages/AppCategory/AppPopular/AppPopular'
 import AppReleases from '~/pages/AppCategory/AppNewReleases/AppNewReleases'
 import AppAllCategory from '~/pages/AppCategory/AppAllCategory/AppAllCategory'
-import GameDetail from '~/pages/GameDetail'
-import AppDetail from '~/pages/AppDetail'
-import Result from '~/pages/Result'
-import GameCategoryDetail from '~/pages/GameCategoryDetail'
+import GameDetail from '~/pages/GameDetail/GameDetail'
+import AppDetail from '~/pages/AppDetail/AppDetail'
+import Result from '~/pages/Result/Result'
+import GameCategoryDetail from '~/pages/GameCategoryDetail/GameCategoryDetail'
+import AppCategoryDetail from '~/pages/AppCategoryDetail/AppCategoryDetail'
+import About from '~/components/Layout/DefaultLayout/Footer/About'
+import Policy from '~/components/Layout/DefaultLayout/Footer/Policy'
+import DCMA from '~/components/Layout/DefaultLayout/Footer/DMCA'
 
 
 const publicRoutes = [
@@ -34,7 +38,11 @@ const publicRoutes = [
     { path: '/app-category/all-category', component: AppAllCategory},
     { path: "/games/:slug/:_id", component: GameDetail},
     { path: "/apps/:slug/:_id", component: AppDetail},
-    { path: "/category/:categoryName", component: GameCategoryDetail},
+    { path: "/game-category/:categoryName", component: GameCategoryDetail},
+    { path: "/app-category/:categoryName", component: AppCategoryDetail},
+    { path: "/about", component: About},
+    { path: "/policy", component: Policy},
+    { path: "/dmca", component: DCMA},
 
 ];
 export { publicRoutes };

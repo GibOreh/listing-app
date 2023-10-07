@@ -8,6 +8,7 @@ const initRouters = (app)=>{
     app.use('/api/app',appRouter)
     app.use('/api/insert-game',insertGame)
     app.use('/api/insert-app',insertApp)
+    app.use('/api/insert-article',insertArticle)
 }
 
 module.exports = initRouters
