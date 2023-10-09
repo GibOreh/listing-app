@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
 import { apiGetGameDetail } from '~/apis/game';
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -17,6 +18,9 @@ function ItemDetail() {
 
     fetchData();
   }, [_id]);
+  const formattedUpdatedAt = gameData.updatedAt ? format(new Date(gameData.updatedAt), 'MMM dd, yyyy') : '';
+  const description_part_1 = gameData.description ? gameData.description.substring(0, 300) : '';
+  const description_part_2 = gameData.description ? gameData.description.substring(500, 1000) : '';
 
   return (
     <Container className="bg-gray">
@@ -53,11 +57,12 @@ function ItemDetail() {
               <Col lg={6} xs={3} className="game-info-item mt-4">Platform</Col>
               <Col lg={6} xs={9} className="game-info-data mt-4">{gameData.platform}</Col>
               <Col lg={6} xs={3} className="game-info-item mt-4">Update</Col>
-              <Col lg={6} xs={9} className="game-info-data mt-4 mb-4">{gameData.releaseDate}</Col>
+              <Col lg={6} xs={9} className="game-info-data mt-4 mb-4">{formattedUpdatedAt}</Col>
             </Row>
           </Container>
           <div className="game-description">
-            <p>{gameData.description}</p>
+            <p>{description_part_1}</p>
+            <h1>{description_part_1}</h1>
           </div>
         </Col>
       </Row>

@@ -11,7 +11,6 @@ const fn = async(app) => {
         platform: app?.platform,
         size: app?.size,
         version: app?.version,
-        releaseDate: app?.releaseDate,
         image: app?.image,
         downloadLinks: app?.downloadLinks,
         description: app?.description,

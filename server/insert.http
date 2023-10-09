@@ -4,3 +4,7 @@ POST http://localhost:5002/api/insert-game/
 ###
 
 POST http://localhost:5002/api/insert-app/
+
+###
+
+POST http://localhost:5002/api/insert-article

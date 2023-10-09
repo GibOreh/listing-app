@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
 import { apiGetAppDetail } from '~/apis/app';
 import { Container, Row, Col, Button } from 'react-bootstrap';
@@ -17,6 +18,9 @@ function AppDetail() {
 
     fetchData();
   }, [_id]);
+  const formattedUpdatedAt = appData.updatedAt ? format(new Date(appData.updatedAt), 'MMM dd, yyyy') : '';
+  const description_part_1 = appData.description ? appData.description.substring(0, 300) : '';
+  const description_part_2 = appData.description ? appData.description.substring(500, 1000) : '';
 
   return (
     <Container className="bg-gray">
@@ -53,11 +57,12 @@ function AppDetail() {
               <Col lg={6} xs={3} className="app-info-item mt-4">Platform</Col>
               <Col lg={6} xs={9} className="app-info-data mt-4">{appData.platform}</Col>
               <Col lg={6} xs={3} className="app-info-item mt-4">Update</Col>
-              <Col lg={6} xs={9} className="app-info-data mt-4 mb-4">{appData.releaseDate}</Col>
+              <Col lg={6} xs={9} className="app-info-data mt-4 mb-4">{formattedUpdatedAt}</Col>
             </Row>
           </Container>
           <div className="app-description">
-            <p>{appData.description}</p>
+            <p>{description_part_1}</p>
+            <h1>{description_part_1}</h1>
           </div>
         </Col>
       </Row>

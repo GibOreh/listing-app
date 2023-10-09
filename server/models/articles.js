@@ -27,7 +27,7 @@ var articleSchema = new mongoose.Schema({
 articleSchema.pre('validate', function(next) {
     this.slug = slugify(this.title, { lower: true });
 
-    this.slug = this.slug.replace(/[':]/g, ''); 
+    this.slug = this.slug.replace(/[':&]/g, ''); 
 
     next();
 });

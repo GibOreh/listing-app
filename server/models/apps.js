@@ -48,10 +48,6 @@ var appSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    releaseDate:{
-        type:String,
-        required:true,
-    },
     image: {
         type: Array
     },

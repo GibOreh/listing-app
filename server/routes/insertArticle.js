@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const ctrls = require('../controllers/insertDataApp')
+const ctrls = require('../controllers/insertDataArticle')
 
-router.post('/',ctrls.insertApp)
+router.post('/',ctrls.insertArticle)
 
 
 module.exports = router

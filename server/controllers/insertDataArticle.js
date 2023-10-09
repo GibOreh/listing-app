@@ -1,23 +1,23 @@
-const App = require('../models/apps')
+const Article = require('../models/articles')
 const asyncHandler = require('express-async-handler')
 const slugify = require('slugify')
-const data = require('../../data/dataApp.json')
+const data = require('../../data/dataArticle.json')
 
-const fn = async(app) => {
-    await App.create({
-        title: app?.title,
-        slug: slugify(app?.title),
-        image: app?.image,
-        description: app?.description,
+const fn = async(article) => {
+    await Article.create({
+        title: article?.title,
+        slug: slugify(article?.title),
+        image: article?.image,
+        description: article?.description,
     })
 }
-const insertApp = asyncHandler(async(req,res)=>{
+const insertArticle = asyncHandler(async(req,res)=>{
     const promises =[]
-    for(let app of data) promises.push(fn(app))
+    for(let article of data) promises.push(fn(article))
     await Promise.all(promises)
     return res.status(200).json('Done')
 })
 
 module.exports = {
-    insertApp
+    insertArticle
 }

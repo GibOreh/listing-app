@@ -11,7 +11,6 @@ const fn = async(game) => {
         platform: game?.platform,
         size: game?.size,
         version: game?.version,
-        releaseDate: game?.releaseDate,
         image: game?.image,
         downloadLinks: game?.downloadLinks,
         description: game?.description,

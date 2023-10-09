@@ -13,6 +13,7 @@ import AppReleases from '~/pages/AppCategory/AppNewReleases/AppNewReleases'
 import AppAllCategory from '~/pages/AppCategory/AppAllCategory/AppAllCategory'
 import GameDetail from '~/pages/GameDetail/GameDetail'
 import AppDetail from '~/pages/AppDetail/AppDetail'
+import ArticleDetail from '~/pages/ArticleDetail/ArticleDetail'
 import Result from '~/pages/Result/Result'
 import GameCategoryDetail from '~/pages/GameCategoryDetail/GameCategoryDetail'
 import AppCategoryDetail from '~/pages/AppCategoryDetail/AppCategoryDetail'
@@ -38,6 +39,7 @@ const publicRoutes = [
     { path: '/app-category/all-category', component: AppAllCategory},
     { path: "/games/:slug/:_id", component: GameDetail},
     { path: "/apps/:slug/:_id", component: AppDetail},
+    { path: "/articles/:slug/:_id", component: ArticleDetail},
     { path: "/game-category/:categoryName", component: GameCategoryDetail},
     { path: "/app-category/:categoryName", component: AppCategoryDetail},
     { path: "/about", component: About},

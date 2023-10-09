@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './styles.css';
-import { apiGetGames } from '~/apis/game';
+import { apiGetArticles } from '~/apis/article';
 import Blog from '../Blog/Blog';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
@@ -9,13 +9,13 @@ function Article() {
         const [currentPage, setCurrentPage] = useState(1);
         const itemsPerPage = 3; 
 
-        const fetchGames = async () => {
-            const response = await apiGetGames({ sort: 'updateAt' });
-            setNewReleases(response.data.games);
+        const fetchArticles = async () => {
+            const response = await apiGetArticles({ sort: 'updateAt' });
+            setNewReleases(response.data.articles);
         };
 
         useEffect(() => {
-            fetchGames();
+            fetchArticles();
         }, []);
         const indexOfLastItem = currentPage * itemsPerPage;
         const indexOfFirstItem = indexOfLastItem - itemsPerPage;
