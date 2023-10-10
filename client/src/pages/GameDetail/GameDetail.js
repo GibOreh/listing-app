@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
 import { apiGetGameDetail } from '~/apis/game';
+import Breadcrumb from '~/pages/Breadcrumb';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './styles.css'; 
@@ -24,6 +25,7 @@ function ItemDetail() {
 
   return (
     <Container className="bg-gray">
+      <Breadcrumb title ={gameData?.title} category = {gameData?.category}/>
       <Row>
         <Col lg={{ span: 8, offset: 2 }}>
           <Container className="game-header text-center">

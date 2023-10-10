@@ -40,7 +40,6 @@ function GameCategory() {
         </Nav>
         <div>
             {tabs[activedTab - 1].content}
-            {/* {JSON.stringify(update)} */}
         </div>
     </div>
   )

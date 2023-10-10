@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiGetApps } from '~/apis/app';
-import Item from '../../GameItem/GameItem';
+import Item from '../../AppItem/AppItem';
 import { HiChevronRight } from 'react-icons/hi2';
 import { Container, Row, Col } from 'react-bootstrap';
 

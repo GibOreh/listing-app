@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { useParams } from 'react-router-dom';
+import Breadcrumb from '~/pages/Breadcrumb';
 import { apiGetAppDetail } from '~/apis/app';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -24,6 +25,7 @@ function AppDetail() {
 
   return (
     <Container className="bg-gray">
+      <Breadcrumb title ={appData?.title} category = {appData?.category}/>
       <Row>
         <Col lg={{ span: 8, offset: 2 }}>
           <Container className="app-header text-center">

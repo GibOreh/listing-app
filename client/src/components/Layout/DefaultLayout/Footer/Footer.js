@@ -7,7 +7,7 @@ const Footer = () => {
         <footer bg="light" className="text-dark p-5">
             <Container>
                 <Row>
-                    <Col md={4} sm={6}>
+                    <Col lg={4} sm={12}>
                         <h5 className="mb-3">Who We Are?</h5>
                         <ul className="list-unstyled">
                             <li>
@@ -27,7 +27,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </Col>
-                    <Col md={4} sm={6}>
+                    <Col lg={4} sm={12}>
                         <h5 className="mb-3">Trending</h5>
                         <ul className="list-unstyled">
                             <li>
@@ -57,7 +57,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </Col>
-                    <Col md={4}>
+                    <Col lg={4} sm={12}>
                         <h5 className="mb-3">Latest</h5>
                         <ul className="list-unstyled">
                             <li>
