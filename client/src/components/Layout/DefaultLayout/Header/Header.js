@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom'; 
+import { useLocation } from 'react-router-dom';
 import Search from '~/pages/Search/Search';
-import './styles.css'; 
+import './styles.css';
 
 function Header() {
     const [showNav, setShowNav] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
-    const location = useLocation(); 
-    const navRef = useRef(null); 
+    const location = useLocation();
+    const navRef = useRef(null);
 
     const handleToggle = () => {
         setShowNav(!showNav);
@@ -16,7 +16,7 @@ function Header() {
 
     const handleSearchClick = () => {
         setShowSearch(!showSearch);
-        setShowNav(false); 
+        setShowNav(false);
     };
 
     useEffect(() => {
@@ -35,18 +35,19 @@ function Header() {
     useEffect(() => {
         setShowNav(false);
         setShowSearch(false);
-    }, [location.pathname]); 
+    }, [location.pathname]);
 
     return (
-        <Container>
-            {showNav && <div className="overlay"></div>}
+        <Container style={{ backgroundColor: "white",maxWidth: "-webkit-fill-available"}} >
+    { showNav && <div className="overlay"></div>}
             <div>
                 <Navbar
+
                     expand="lg"
                     variant="light"
                     className="my-2 navbar-custom"
                     expanded={showNav}
-                    ref={navRef} 
+                    ref={navRef}
                 >
                     <Navbar.Brand href="/" className="text-dark">
                         APKMODY
@@ -74,9 +75,8 @@ function Header() {
             <Container className={`search-bar-container ${showSearch ? 'show-search-bar' : ''}`}>
                 <Search onSearch={(searchTerm) => console.log(searchTerm)} />
             </Container>
-        </Container>
+        </Container >
     );
 }
 
 export default Header;
-    
