@@ -21,6 +21,10 @@ function ItemDetail() {
   const formattedUpdatedAt = gameData.updatedAt ? format(new Date(gameData.updatedAt), 'MMM dd, yyyy') : '';
   const description_part_1 = gameData.description ? gameData.description.substring(0, 300) : '';
   const description_part_2 = gameData.description ? gameData.description.substring(500, 1000) : '';
+  useEffect(() => {
+    // 👇️ scroll to top on page load every time recall this page
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 
   return (
     <Container className="bg-gray">
