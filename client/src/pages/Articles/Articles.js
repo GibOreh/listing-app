@@ -25,6 +25,7 @@ function Article() {
 
         return (
             <Container>
+            <h2>Articles</h2>
             <Row>
                 {currentItems.map((el) => (
                 <Col lg={12} xs={12}>
@@ -32,7 +33,7 @@ function Article() {
                 </Col>
                 ))}
             </Row>
-            <div className="pagination-container">
+            <div className="pagination-container pb-4">
                 {Array.from({ length: Math.ceil(newreleases.length / itemsPerPage) }).map((_, index) => (
                 <Button 
                     key={index} onClick={() => paginate(index + 1)}  

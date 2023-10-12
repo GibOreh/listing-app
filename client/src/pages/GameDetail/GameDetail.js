@@ -20,11 +20,11 @@ function ItemDetail() {
     fetchData();
   }, [_id]);
   const formattedUpdatedAt = gameData.updatedAt ? format(new Date(gameData.updatedAt), 'MMM dd, yyyy') : '';
-  const description_part_1 = gameData.description ? gameData.description.substring(0, 300) : '';
-  const description_part_2 = gameData.description ? gameData.description.substring(500, 1000) : '';
+  // const description_part_1 = gameData.description ? gameData.description.substring(0, 300) : '';
+  // const description_part_2 = gameData.description ? gameData.description.substring(500, 1000) : '';
 
   return (
-    <Container className="bg-gray">
+    <Container>
       <Breadcrumb title ={gameData?.title} category = {gameData?.category}/>
       <Row>
         <Col lg={{ span: 8, offset: 2 }}>
@@ -63,8 +63,8 @@ function ItemDetail() {
             </Row>
           </Container>
           <div className="game-description">
-            <p>{description_part_1}</p>
-            <h1>{description_part_1}</h1>
+            <p>{gameData.description}</p>
+            
           </div>
         </Col>
       </Row>

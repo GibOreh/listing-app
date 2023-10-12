@@ -18,7 +18,7 @@ function ArticleDetail() {
   }, [_id]);
 
   return (
-    <Container className="bg-gray">
+    <Container>
       <Row>
         <Col lg={{ span: 8, offset: 2 }}>
          <h4>{articleData.title}</h4>

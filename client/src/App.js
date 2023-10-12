@@ -5,7 +5,7 @@ import { DefaultLayout } from '~/components/Layout';
 function App() {
     return (
         <Router>
-            <div className="App">
+            <div className="App" style={{ backgroundColor: "#F8F8FF" }} >
                 <Routes>
                     {publicRoutes.map((route, index) => {
                         const Layout = route.layout || DefaultLayout;

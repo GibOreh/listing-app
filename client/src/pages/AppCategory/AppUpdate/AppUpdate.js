@@ -33,7 +33,7 @@ function AppUpdate() {
                 </Col>
                 ))}
             </Row>
-            <div className="pagination-container">
+            <div className="pagination-container pb-4">
                 {Array.from({ length: Math.ceil(update.length / itemsPerPage) }).map((_, index) => (
                 <Button 
                     key={index} onClick={() => paginate(index + 1)}  

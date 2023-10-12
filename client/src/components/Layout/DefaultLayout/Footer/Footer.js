@@ -4,7 +4,7 @@ import './footer.css';
 
 const Footer = () => {
     return (
-        <footer bg="light" className="text-dark p-5">
+        <footer className="text-dark p-5 white-background">
             <Container>
                 <Row>
                     <Col lg={4} sm={12}>

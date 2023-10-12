@@ -24,7 +24,7 @@ function AppDetail() {
   const description_part_2 = appData.description ? appData.description.substring(500, 1000) : '';
 
   return (
-    <Container className="bg-gray">
+    <Container>
       <Breadcrumb title ={appData?.title} category = {appData?.category}/>
       <Row>
         <Col lg={{ span: 8, offset: 2 }}>
